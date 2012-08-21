@@ -4,6 +4,22 @@
   http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
   http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
 
+<!-- 1st approach for ws client -->
+
 	<jaxws:client id="helloWorldClient" serviceClass="com.bd.soap.cxf.service.HelloWorldService" address="http://localhost:8080/soap-service/ws/HelloWorld" />
+
+<!-- end of 1st approach for ws client -->
+
+
+<!-- 2nd approach of using CXF JaxWsProxyFactoryBean -->
+
+	<bean id="client" class="com.bd.soap.cxf.service.HelloWorldService" factory-bean="clientFactory" factory-method="create" />
+
+	<bean id="clientFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+		<property name="serviceClass" value="com.bd.soap.cxf.service.HelloWorldService" />
+		<property name="address" value="http://localhost:8080/soap-service/ws/HelloWorld" />
+	</bean>
+	
+<!-- end of 2nd approach of using CXF JaxWsProxyFactoryBean -->
 
 </beans>
