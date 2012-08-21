@@ -13,7 +13,7 @@
 
 <!-- 2nd approach of using CXF JaxWsProxyFactoryBean -->
 
-	<bean id="client" class="com.bd.soap.cxf.service.HelloWorldService" factory-bean="clientFactory" factory-method="create" />
+	<bean id="helloWorldClient2" class="com.bd.soap.cxf.service.HelloWorldService" factory-bean="clientFactory" factory-method="create" />
 
 	<bean id="clientFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
 		<property name="serviceClass" value="com.bd.soap.cxf.service.HelloWorldService" />
