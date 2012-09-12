@@ -1,4 +1,4 @@
-package com.bd.soap.cxf.service.impl;
+package com.bd.soap.cxf.ws.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -8,7 +8,7 @@ import javax.jws.WebService;
 
 import com.bd.soap.cxf.bean.MortgageIdentifier;
 import com.bd.soap.cxf.bean.MortgageType;
-import com.bd.soap.cxf.service.InterestRateService;
+import com.bd.soap.cxf.ws.InterestRateService;
 
 @WebService(endpointInterface = "com.mycompany.webservice.service.InterestRateService")
 public class InterestRateServiceImpl implements InterestRateService {

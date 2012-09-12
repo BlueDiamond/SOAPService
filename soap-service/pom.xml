@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.bd.soap.cxf</groupId>
 	<artifactId>soap-service</artifactId>
@@ -15,7 +14,8 @@
 		<powermock.version>1.4.12</powermock.version>
 		<org.slf4j.version>1.6.6</org.slf4j.version>
 		<apache.httpcomponents.version>4.1.1</apache.httpcomponents.version>
-		<spring.version>3.1.1.RELEASE</spring.version>
+		<spring.version>3.1.2.RELEASE</spring.version>
+		<hibernate.version>4.1.6.Final</hibernate.version>
 		<cxf.version>2.6.1</cxf.version>
 	</properties>
 
@@ -24,12 +24,40 @@
 	<dependencies>
 
 		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.21</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-ehcache</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
 			<groupId>com.sun.xml.ws</groupId>
 			<artifactId>jaxws-rt</artifactId>
 			<version>2.2.7</version>
 		</dependency>
-
-
 
 		<dependency>
 			<groupId>junit</groupId>
@@ -265,9 +293,7 @@
 			<url>http://repo.springsource.org/release</url>
 		</repository>
 
-		<!-- <repository> <id>maven2-repository.dev.java.net</id> <name>Java.net 
-			Repository for Maven 2</name> <url>http://download.java.net/maven/2/</url> 
-			</repository> -->
+		<!-- <repository> <id>maven2-repository.dev.java.net</id> <name>Java.net Repository for Maven 2</name> <url>http://download.java.net/maven/2/</url> </repository> -->
 	</repositories>
 
 	<pluginRepositories>
@@ -301,11 +327,9 @@
 				</configuration>
 			</plugin>
 
-			<!-- <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>jaxws-maven-plugin</artifactId> 
-				<executions> <execution> <goals> <goal>wsgen</goal> </goals> <configuration> 
-				<sei>com.example.maven.jaxws.helloservice.Hello</sei> for demo purpose only, 
-				the webapp does not need the generated wsdl files <genWsdl>true</genWsdl> 
-				<keep>true</keep> </configuration> </execution> </executions> </plugin> -->
+			<!-- <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>jaxws-maven-plugin</artifactId> <executions> <execution> <goals> <goal>wsgen</goal> </goals> <configuration> 
+				<sei>com.example.maven.jaxws.helloservice.Hello</sei> for demo purpose only, the webapp does not need the generated wsdl files <genWsdl>true</genWsdl> <keep>true</keep> 
+				</configuration> </execution> </executions> </plugin> -->
 
 
 

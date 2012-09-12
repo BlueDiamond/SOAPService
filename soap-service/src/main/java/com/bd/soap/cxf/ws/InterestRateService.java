@@ -1,4 +1,4 @@
-package com.bd.soap.cxf.service;
+package com.bd.soap.cxf.ws;
 
 import java.util.Collection;
 
