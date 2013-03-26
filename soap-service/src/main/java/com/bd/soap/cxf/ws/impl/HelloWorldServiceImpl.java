@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import com.bd.soap.cxf.ws.HelloWorldService;
 
-@WebService(endpointInterface = "com.bd.soap.cxf.service.HelloWorldService")
+@WebService(endpointInterface = "com.bd.soap.cxf.ws.HelloWorldService")
 public class HelloWorldServiceImpl implements HelloWorldService {
 	private static Logger logger = LoggerFactory.getLogger(HelloWorldServiceImpl.class);
 	

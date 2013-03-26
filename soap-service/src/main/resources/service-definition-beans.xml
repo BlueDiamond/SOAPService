@@ -8,20 +8,9 @@
 
 	<context:component-scan base-package="com.bd.soap.cxf" scoped-proxy="targetClass" />
 
-	<bean id="propertyPlaceHolder" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="systemPropertiesMode" value="2" />
-		<property name="ignoreUnresolvablePlaceholders" value="true" />
-		<property name="locations">
-			<list>
-				<value>classpath:test-db.properties</value>
-				<value>classpath:db.properties</value>
-			</list>
-		</property>
-	</bean>
-
 	<import resource="classpath:mysql-config.xml" />
 
-	<bean id="helloWorldService" class="com.bd.soap.cxf.service.impl.HelloWorldServiceImpl" />
+	<bean id="helloWorldService" class="com.bd.soap.cxf.ws.impl.HelloWorldServiceImpl" />
 
 </beans>
 

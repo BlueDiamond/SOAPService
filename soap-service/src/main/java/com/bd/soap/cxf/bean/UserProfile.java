@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 public class UserProfile implements Serializable {
-
+	private static final long serialVersionUID = 1L;
 	private long profileID;
 	private String name;
 	private String emailID;
@@ -76,6 +76,12 @@ public class UserProfile implements Serializable {
 
 	public void setCreatedTS(Timestamp createdTS) {
 		this.createdTS = createdTS;
+	}
+
+	@Override
+	public String toString() {
+		return "UserProfile [profileID=" + profileID + ", name=" + name + ", emailID=" + emailID + ", sex=" + sex + ", relationshipStatus="
+				+ relationshipStatus + ", languages=" + languages + ", livesIn=" + livesIn + ", createdTS=" + createdTS + "]";
 	}
 
 }

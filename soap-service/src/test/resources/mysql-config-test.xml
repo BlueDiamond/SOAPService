@@ -12,34 +12,43 @@
 
 	<context:component-scan base-package="com.bd.soap.cxf" scoped-proxy="targetClass" />
 
-	<bean id="propertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="systemPropertiesMode" value="2" />
-		<property name="ignoreUnresolvablePlaceholders" value="true" />
+
+<!-- Available as injected Spring EL values and Properties object -->
+	<bean id="dbConfigProps" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
 		<property name="ignoreResourceNotFound" value="true" />
 		<property name="locations">
 			<list>
-				<value>classpath:db.properties</value>
+				<!-- Order matters, last one to create a property wins! -->
+				<value>classpath:db-test.properties</value>
 			</list>
 		</property>
 	</bean>
-	
 
+	<!-- available as spring config -->
+	<bean id="propertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="ignoreResourceNotFound" value="false" />
+		<property name="properties" ref="dbConfigProps" />
+	</bean>
+	
+	
+	
 	<bean id="bdPooledMysqlDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-		<property name="driverClass" value="${mysqldb.driver}" />
-		<property name="jdbcUrl" value="${mysqldb.url}" />
-		<property name="user" value="${mysqldb.username}" />
-		<property name="password" value="${mysqldb.password}" />
-		<property name="minPoolSize" value="${mysqldb.minPoolSize}" />
-		<property name="maxPoolSize" value="${mysqldb.maxPoolSize}" />
-		<property name="maxStatements" value="${mysqldb.maxStatements}" />
-		<property name="maxStatementsPerConnection" value="${mysqldb.maxStatementsPerConnection}" />
-		<property name="testConnectionOnCheckout" value="${mysqldb.testConnectionOnCheckout}" />
-		<property name="testConnectionOnCheckin" value="${mysqldb.testConnectionOnCheckin}" />
-		<property name="acquireIncrement" value="${mysqldb.acquireIncrement}" />
-		<property name="initialPoolSize" value="${mysqldb.initialPoolSize}" />
-		<property name="idleConnectionTestPeriod" value="${mysqldb.idleConnectionTestPeriod}" />
-		<property name="preferredTestQuery" value="${mysqldb.preferredTestQuery}" />
-		<property name="maxIdleTime" value="${mysqldb.maxIdleTime}" />
+		<property name="driverClass" value="com.mysql.jdbc.Driver" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/test" />
+		<property name="user" value="palani" />
+		<property name="password" value="admin123" />
+		<property name="minPoolSize" value="2" />
+		<property name="maxPoolSize" value="10" />
+		<property name="maxStatements" value="5" />
+		<property name="maxStatementsPerConnection" value="5" />
+		<property name="testConnectionOnCheckout" value="true" />
+		<property name="testConnectionOnCheckin" value="true" />
+		<property name="acquireIncrement" value="1" />
+		<property name="initialPoolSize" value="2" />
+		<property name="idleConnectionTestPeriod" value="600" />
+		<property name="preferredTestQuery" value="SELECT 1 FROM DUAL" />
+		<property name="maxIdleTime" value="600" />
 	</bean>
 
 

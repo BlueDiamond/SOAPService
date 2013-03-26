@@ -11,7 +11,7 @@ import com.bd.soap.cxf.ws.HelloWorldService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "/service-definition-beans-test.xml" })
-public class HelloWorldServiceTest {
+public class HelloWorldServiceIT {
 
 	@Autowired
 	@Qualifier("helloWorldClient")

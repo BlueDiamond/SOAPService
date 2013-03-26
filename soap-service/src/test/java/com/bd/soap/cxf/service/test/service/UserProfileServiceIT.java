@@ -6,10 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.bd.soap.cxf.bean.UserProfile;
 import com.bd.soap.cxf.service.UserProfileService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:service-definition-beans.xml" })
+@ContextConfiguration(locations = { "classpath:service-definition-beans-test.xml" })
 public class UserProfileServiceIT {
 
 	@Autowired
@@ -18,7 +19,9 @@ public class UserProfileServiceIT {
 	@Test
 	public void userProfileServiceTest() {
 		try {
-			userProfileService.selectUserProfile();
+			UserProfile userProfile = userProfileService.selectUserProfile();
+			System.out.println(userProfile);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
