@@ -1,8 +1,6 @@
 package com.bd.soap.cxf.ws.impl;
 
 import java.math.BigInteger;
-import java.sql.Timestamp;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -46,6 +44,8 @@ public class UserProfileWebServiceImpl implements UserProfileServicePort {
 		logger.info("Executing operation getUserProfile");
 		try {
 			GregorianCalendar calendar = new GregorianCalendar();
+			// UserProfileService userProfileService = new UserProfileServiceImpl();
+
 			List<UserProfile> userProfileList = userProfileService.selectAllUserProfile();
 			logger.info("userProfileList: " + userProfileList);
 
@@ -55,8 +55,8 @@ public class UserProfileWebServiceImpl implements UserProfileServicePort {
 				for (UserProfile userProfile : userProfileList) {
 					UserProfileType userProfileType = new UserProfileType();
 					userProfileType.setEmailID(userProfile.getEmailID());
-				    calendar.setTime(new Date(userProfile.getCreatedTS().getTime()));
-				    XMLGregorianCalendar xmlGregorianCalendar = DatatypeFactory.newInstance().newXMLGregorianCalendar(calendar);
+					calendar.setTime(new Date(userProfile.getCreatedTS().getTime()));
+					XMLGregorianCalendar xmlGregorianCalendar = DatatypeFactory.newInstance().newXMLGregorianCalendar(calendar);
 					userProfileType.setCreatedTS(xmlGregorianCalendar);
 					userProfileType.setLanguages(userProfile.getLanguages());
 					userProfileType.setLivesIn(userProfile.getLivesIn());
@@ -64,7 +64,7 @@ public class UserProfileWebServiceImpl implements UserProfileServicePort {
 					userProfileType.setProfileID(new BigInteger(String.valueOf(userProfile.getProfileID())));
 					userProfileType.setRelationshipStatus(userProfile.getRelationshipStatus());
 					userProfileType.setSex(userProfile.getSex());
-					
+
 					userProfileResponse.getUserProfile().add(userProfileType);
 				}
 
