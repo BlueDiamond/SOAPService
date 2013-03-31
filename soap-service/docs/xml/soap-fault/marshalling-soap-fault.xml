@@ -1,0 +1,8 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Body>
+      <soap:Fault>
+         <faultcode>soap:Server</faultcode>
+         <faultstring>Marshalling Error: com.soai.types.UserProfileResponseDocument is not known to this context</faultstring>
+      </soap:Fault>
+   </soap:Body>
+</soap:Envelope>

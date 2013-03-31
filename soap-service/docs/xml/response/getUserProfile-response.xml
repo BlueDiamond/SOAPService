@@ -1,0 +1,26 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Body>
+      <UserProfileResponse xmlns="http://soai.com/types">
+         <User_Profile>
+            <Profile_ID>101</Profile_ID>
+            <Name>Palanisamy Ramamoorthy</Name>
+            <Email_ID>rpalanisamy@yahoo.com</Email_ID>
+            <Sex>male</Sex>
+            <Relationship_Status>married</Relationship_Status>
+            <Languages>English, Hindi, Tamil</Languages>
+            <Lives_in>Malvern, PA</Lives_in>
+            <Created_TS>2013-03-25T08:30:57.000-04:00</Created_TS>
+         </User_Profile>
+         <User_Profile>
+            <Profile_ID>102</Profile_ID>
+            <Name>Brian Charles</Name>
+            <Email_ID>praharam@gmail.com</Email_ID>
+            <Sex>male</Sex>
+            <Relationship_Status>Single</Relationship_Status>
+            <Languages>Spanish, English</Languages>
+            <Lives_in>Orlando, FL</Lives_in>
+            <Created_TS>2013-03-25T20:46:59.000-04:00</Created_TS>
+         </User_Profile>
+      </UserProfileResponse>
+   </soap:Body>
+</soap:Envelope>

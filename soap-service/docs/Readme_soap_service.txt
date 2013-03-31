@@ -12,12 +12,17 @@ xsd to wsdl:
 index page:
 http://localhost:8080/soap-service/index.jsp
 ---
-HelloWorld service end point:
+service end points:
 http://localhost:8080/soap-service/ws/HelloWorld
+http://localhost:8080/soap-service/HelloWorldServiceImpl?wsdl
 
-HelloWorld service can only be tested in IT:
-There is no wsdl for hello world service as it doesnt return anything and no input
+http://localhost:8080/soap-service/UserProfileService
+http://localhost:8080/soap-service/UserProfileService?wsdl
+
+---
+
 ----------------------------------------------------------------------------------------------------
+
 
 ----------------------------------------------------------------------------------------------------
 
