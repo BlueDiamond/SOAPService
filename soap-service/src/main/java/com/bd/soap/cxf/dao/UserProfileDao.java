@@ -1,5 +1,7 @@
 package com.bd.soap.cxf.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.CacheNamespace;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
@@ -13,7 +15,7 @@ import com.bd.soap.cxf.bean.UserProfile;
 @CacheNamespace(implementation = org.mybatis.caches.ehcache.EhcacheCache.class)
 public interface UserProfileDao {
 
-	String GET_USER_PROFILE = "SELECT Profile_ID as profileID, Name as name, Email_ID as emailID, Sex as sex,"
+	String GET_ALL_USER_PROFILE = "SELECT Profile_ID as profileID, Name as name, Email_ID as emailID, Sex as sex,"
 			+ " Relationship_Status as relationshipStatus, Languages as languages, Lives_in as livesIn, Created_TS as createdTS"
 			+ " FROM test.USER_PROFILE_TBL";
 
@@ -21,20 +23,22 @@ public interface UserProfileDao {
 			+ " Relationship_Status as relationshipStatus, Languages as languages, Lives_in as livesIn, Created_TS as createdTS"
 			+ " FROM test.USER_PROFILE_TBL WHERE Profile_ID = #{profileID}";
 
-	String INSERT_USER_PROFILE = "INSERT into userProfile (building,street,location,town,postCode,countyId,countryId,notes,createdOn,createdBy,active) VALUES (#{building},#{street},#{location},#{town},#{postCode},#{countyId},#{countryId},#{notes},sysdate(),#{createdBy},1)";
-	String UPDATE_USER_PROFILE = "UPDATE userProfile set building=#{building},countyId=#{countyId}, street=#{street},location=#{location},town=#{town},postCode=#{postCode},notes=#{notes},modifiedOn=sysdate(),modifiedBy=#{modifiedBy},countryId=#{countryId} where id= #{id}";
-	String DELETE_USER_PROFILE = "DELETE from userProfile WHERE id = #{profileID}";
+	String INSERT_USER_PROFILE = "INSERT into test.USER_PROFILE_TBL (Profile_ID, Name, Email_ID, Sex, Relationship_Status, Languages, Lives_in, Created_TS) VALUES (#{profileID}, #{name}, #{emailID}, #{sex}, #{relationshipStatus}, #{languages}, #{livesIn}, sysdate())";
 
-	@Select(GET_USER_PROFILE)
+	String UPDATE_USER_PROFILE = "UPDATE test.USER_PROFILE_TBL set Name=#{name}, Email_ID=#{emailID}, Sex=#{sex}, Relationship_Status=#{relationshipStatus}, Languages=#{languages}, Lives_in=#{livesIn}, Created_TS=sysdate() where Profile_ID = #{profileID}";
+
+	String DELETE_USER_PROFILE = "DELETE from test.USER_PROFILE_TBL WHERE Profile_ID = #{profileID}";
+
+	@Select(GET_ALL_USER_PROFILE)
 	@Options(useCache = true)
-	public UserProfile selectUserProfile() throws Exception;
+	public List<UserProfile> selectAllUserProfile() throws Exception;
 
 	@Select(GET_USER_PROFILE_BY_ID)
 	@Options(useCache = true)
 	public UserProfile selectUserProfileByID(@Param("profileID") long profileID) throws Exception;
 
 	@Insert(INSERT_USER_PROFILE)
-	@Options(useGeneratedKeys = true, keyProperty = "id", flushCache = true)
+	@Options(useGeneratedKeys = true, keyProperty = "profileID", flushCache = true)
 	public int createUserProfile(UserProfile userProfile) throws Exception;
 
 	@Update(UPDATE_USER_PROFILE)

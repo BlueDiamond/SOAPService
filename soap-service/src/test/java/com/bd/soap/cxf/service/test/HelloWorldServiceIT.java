@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.bd.soap.cxf.ws.HelloWorldService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "/service-definition-beans-test.xml" })
+@ContextConfiguration(locations = { "/spring-context-test.xml" })
 public class HelloWorldServiceIT {
 
 	@Autowired
@@ -19,7 +19,6 @@ public class HelloWorldServiceIT {
 
 	@Test
 	public void helloWorldClientTest() {
-
 		helloWorldClient.sayHello();
 	}
 

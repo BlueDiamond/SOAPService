@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UserProfileResponse xmlns="http://soai.com/types" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://soai.com/types User_Profile.xsd">
+    <User_Profile>
+        <Profile_ID>101</Profile_ID>
+        <Name>Palanisamy Ramamoorthy</Name>
+        <Email_ID>rpalanisamy@yahoo.com</Email_ID>
+        <Sex>male</Sex>
+        <Relationship_Status>married</Relationship_Status>
+        <Languages>English, Hindi, Tamil</Languages>
+        <Lives_in>Malvern, PA</Lives_in>
+        <Created_TS>2013-03-30T09:30:10.5</Created_TS>
+    </User_Profile>
+    
+    <User_Profile>
+        <Profile_ID>102</Profile_ID>
+        <Name>Brian Charles</Name>
+        <Email_ID>praharam@gmail.com</Email_ID>
+        <Sex>male</Sex>
+        <Relationship_Status>Single</Relationship_Status>
+        <Languages>Spanish, English</Languages>
+        <Lives_in>Orlando, FL</Lives_in>
+        <Created_TS>2013-03-30T09:30:10.5</Created_TS>
+    </User_Profile>
+</UserProfileResponse>

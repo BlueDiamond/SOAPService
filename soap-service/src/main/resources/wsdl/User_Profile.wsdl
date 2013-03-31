@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="UserProfileService" targetNamespace="http://soai.com/userprofile/services"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:ups="http://soai.com/userprofile/services" xmlns:upst="http://soai.com/types"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+
+
+  <wsdl:types>
+    <xs:schema>
+      <xs:import namespace="http://soai.com/types" schemaLocation="User_Profile.xsd"/>
+    </xs:schema>
+  </wsdl:types>
+
+
+  <wsdl:message name="UserProfileRequest" />
+  
+  <wsdl:message name="UserProfileResponse">
+    <wsdl:part element="upst:UserProfileResponse" name="UserProfileResponse"/>
+  </wsdl:message>
+
+  <wsdl:portType name="UserProfileServicePort">
+    <wsdl:operation name="UserProfile">
+      <wsdl:input message="ups:UserProfileRequest" name="UserProfileRequest"/>
+      <wsdl:output message="ups:UserProfileResponse" name="UserProfileResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+
+
+  <wsdl:binding name="UserProfileServiceSoapBinding" type="ups:UserProfileServicePort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    
+    <wsdl:operation name="UserProfile">
+      <soap:operation soapAction="UserProfile" style="document"/>
+      
+      <wsdl:input name="UserProfileRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      
+      <wsdl:output name="UserProfileResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+
+  <wsdl:service name="UserProfileService">
+    <wsdl:port binding="ups:UserProfileServiceSoapBinding" name="UserProfileServicePort">
+      <soap:address location="https://soai.com/UserProfileService/1.1"/>
+    </wsdl:port>
+  </wsdl:service>
+
+</wsdl:definitions>

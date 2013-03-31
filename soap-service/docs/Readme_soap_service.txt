@@ -5,11 +5,18 @@ mysql
 mybatis
 mybatis-spring
 ----------------------------------------------------------------------------------------------------
-
+xsd to wsdl:
+/home/java/apache/cxf/apache-cxf-2.7.3/bin/xsd2wsdl -t http://localhost/soai -verbose -n User_Profile User_Profile.xsd
 
 ----------------------------------------------------------------------------------------------------
+index page:
+http://localhost:8080/soap-service/index.jsp
+---
+HelloWorld service end point:
+http://localhost:8080/soap-service/ws/HelloWorld
 
-
+HelloWorld service can only be tested in IT:
+There is no wsdl for hello world service as it doesnt return anything and no input
 ----------------------------------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------------------------------

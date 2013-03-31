@@ -10,7 +10,7 @@ import com.bd.soap.cxf.bean.MortgageIdentifier;
 import com.bd.soap.cxf.bean.MortgageType;
 import com.bd.soap.cxf.ws.InterestRateService;
 
-@WebService(endpointInterface = "com.mycompany.webservice.service.InterestRateService")
+//@WebService(endpointInterface = "com.bd.soap.cxf.ws.InterestRateService")
 public class InterestRateServiceImpl implements InterestRateService {
 	List<MortgageType> mortgageTypes = new ArrayList<MortgageType>();
 	
