@@ -6,6 +6,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.jws.WebService;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
@@ -20,7 +21,7 @@ import com.bd.soap.cxf.ws.connector.soai.UserProfileServicePort;
 import com.soai.types.UserProfileResponse;
 import com.soai.types.UserProfileType;
 
-@javax.jws.WebService(serviceName = "UserProfileService", portName = "UserProfileServicePort", targetNamespace = "http://soai.com/userprofile/services", wsdlLocation = "file:/Users/palani/git/SOAPClient/ws-client/src/main/resources/wsdl/User_Profile.wsdl", endpointInterface = "com.bd.soap.cxf.ws.connector.soai.UserProfileServicePort")
+@WebService(serviceName = "UserProfileService", portName = "UserProfileServicePort", targetNamespace = "http://soai.com/userprofile/services", wsdlLocation = "file:/Users/palani/git/SOAPClient/ws-client/src/main/resources/wsdl/User_Profile.wsdl", endpointInterface = "com.bd.soap.cxf.ws.connector.soai.UserProfileServicePort")
 public class UserProfileWebServiceImpl implements UserProfileServicePort {
 	private static Logger logger = LoggerFactory.getLogger(UserProfileWebServiceImpl.class);
 
@@ -28,7 +29,7 @@ public class UserProfileWebServiceImpl implements UserProfileServicePort {
 	UserProfileService userProfileService;
 
 	/*
-	 * fix for - Spring bean not injected into CXF web service. add this when autowire doesn't work, as the cxf servlet doesnt include the sprign context
+	 * fix for - Spring bean not injected into CXF web service. add this when autowire doesn't work, as the cxf servlet doesnt include the spring context
 	 */
 	@PostConstruct
 	public void init() {

@@ -19,7 +19,7 @@
   </wsdl:message>
 
   <wsdl:portType name="UserProfileServicePort">
-    <wsdl:operation name="UserProfile">
+    <wsdl:operation name="GetUserProfile">
       <wsdl:input message="ups:UserProfileRequest" name="UserProfileRequest"/>
       <wsdl:output message="ups:UserProfileResponse" name="UserProfileResponse"/>
     </wsdl:operation>
@@ -29,8 +29,8 @@
   <wsdl:binding name="UserProfileServiceSoapBinding" type="ups:UserProfileServicePort">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     
-    <wsdl:operation name="UserProfile">
-      <soap:operation soapAction="UserProfile" style="document"/>
+    <wsdl:operation name="GetUserProfile">
+      <soap:operation soapAction="GetUserProfile" style="document"/>
       
       <wsdl:input name="UserProfileRequest">
         <soap:body use="literal"/>

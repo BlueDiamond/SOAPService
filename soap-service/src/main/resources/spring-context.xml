@@ -33,10 +33,18 @@
 	</bean>
 
 
-	<!-- web services -->
-	<bean id="helloWorldService" class="com.bd.soap.cxf.ws.impl.HelloWorldServiceImpl" />
+	<!-- web services config -->
 
-	<jaxws:endpoint id="helloWorld" implementor="#helloWorldService" address="/HelloWorld" />
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+
+	<jaxws:endpoint id="helloWorldService" implementor="com.bd.soap.cxf.ws.impl.HelloWorldServiceImpl" address="/HelloWorld" />
+
+	<jaxws:endpoint id="userProfileService" implementor="com.bd.soap.cxf.ws.impl.UserProfileWebServiceImpl" address="/UserProfileService" />
+
+	<!-- end of web services config -->
+
 
 
 	<!-- mysql-config -->

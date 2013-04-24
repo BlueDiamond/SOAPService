@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://impl.ws.cxf.soap.bd.com/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://ws.cxf.soap.bd.com/" name="HelloWorldServiceImplService"
+	targetNamespace="http://impl.ws.cxf.soap.bd.com/">
+	<wsdl:import location="http://localhost:8080/soap-service/HelloWorld?wsdl=HelloWorldService.wsdl" namespace="http://ws.cxf.soap.bd.com/">
+	</wsdl:import>
+	<wsdl:binding name="HelloWorldServiceImplServiceSoapBinding" type="ns1:HelloWorldService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="sayHello">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="sayHello">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="sayHelloResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="HelloWorldServiceImplService">
+		<wsdl:port binding="tns:HelloWorldServiceImplServiceSoapBinding" name="HelloWorldServiceImplPort">
+			<soap:address location="http://localhost:8080/soap-service/HelloWorld" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

@@ -10,14 +10,15 @@ xsd to wsdl:
 
 ----------------------------------------------------------------------------------------------------
 index page:
-http://localhost:8080/soap-service/index.jsp
+http://localhost:8080/soap-service/index.jsp -- this doesnt work in browser because cxf servlet url pattern is /*, so everything is handled by the cxf servlet
 ---
 service end points:
-http://localhost:8080/soap-service/ws/HelloWorld
-http://localhost:8080/soap-service/HelloWorldServiceImpl?wsdl
+http://localhost:8080/soap-service/HelloWorld?wsdl  -- this should bring up wsdl in browser
+http://localhost:8080/soap-service/HelloWorld -- this doesnt work in browser as expected
 
-http://localhost:8080/soap-service/UserProfileService
-http://localhost:8080/soap-service/UserProfileService?wsdl
+http://localhost:8080/soap-service/UserProfileService?wsdl -- this should bring up wsdl in browser
+http://localhost:8080/soap-service/UserProfileService -- this perfectly works in browser (not sure how it works as soap service cannot be called directly in browser)
+
 
 ---
 
